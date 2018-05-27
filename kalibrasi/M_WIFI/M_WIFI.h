@@ -1,9 +1,9 @@
 #include "ESP8266.h"
 #include <SoftwareSerial.h>
 
-#define ARD_RX_ESP_TX   10
-#define ARD_TX_ESP_RX   11
-#define ESP_RST         8
+#define ARD_RX_ESP_TX   5
+#define ARD_TX_ESP_RX   4
+#define ESP_RST         3
 #define ESP_SSID        "PONDOK DR LT 1"
 #define ESP_PASS        "bulanpuasa"
 #define HOST            "openlibrary.telkomuniversity.ac.id"
