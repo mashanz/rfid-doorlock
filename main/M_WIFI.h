@@ -78,8 +78,10 @@ bool request_permission(String CDID){
 void loop_wifi(String chex){
   if (request_permission(chex)) {
     ACCEPT ();
+    Serial.println("Boleh Masuk");
   } else {
     REJECT ();
+    Serial.println("Tidak Boleh Masuk");
   }
 }
       
