@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <SPI.h>
 #include <RFID.h>
+#include "M_WIFI.h"
 
 #define SS_PIN 10
 #define RST_PIN 9
@@ -8,7 +9,7 @@
 RFID rfid(SS_PIN, RST_PIN);
 int serNum[7];
 String hex1, hex2, hex3, hex4, hex5, hex6, hex7;
-String chex;
+
 
 void setup_rfid() {
   SPI.begin();
@@ -30,8 +31,7 @@ void loop_rfid() {
       hex7 = String(rfid.serNum[6], HEX);
       chex = hex1 + hex2 + hex3 + hex4 + hex5 + hex6 + hex7;
       Serial.println("UID : " + chex);
-      
-
+      loop_wifi(chex);
     }
 
   }

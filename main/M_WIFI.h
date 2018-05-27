@@ -1,5 +1,7 @@
+#include <Arduino.h>
 #include "ESP8266.h"
 #include <SoftwareSerial.h>
+#include "M_SOLENOID.h"
 
 #define ARD_RX_ESP_TX   4
 #define ARD_TX_ESP_RX   5

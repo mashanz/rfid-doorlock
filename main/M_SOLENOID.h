@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include <SoftwareSerial.h>
-#include "M_RFID.h"
+#include "lib.h"
 
 int pushButton = 2;
 const int buzzer = 7;   //Passive buzzer ke Pin D7 dan GND

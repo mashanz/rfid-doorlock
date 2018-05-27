@@ -14,7 +14,7 @@
   MIT license, all text above must be included in any redistribution.
   ------------------------------------------------------------------------*/
 
-#include "lib.h"
+#include "ESP8266.h"
 
 // Constructor
 Adafruit_ESP8266::Adafruit_ESP8266(Stream *s, Stream *d, int8_t r) :
