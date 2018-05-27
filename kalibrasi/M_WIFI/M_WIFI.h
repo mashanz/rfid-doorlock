@@ -1,50 +1,74 @@
-/*
- * default esp8266 black baudrate is 115200
- * change it to 9600 with command AT+UART_DEF=9600,8,1,0,0
- * data will be garbage not slowing down to 9600
- */
+#include "ESP8266.h"
+#include <SoftwareSerial.h>
 
-#include <Arduino.h>
-SoftwareSerial sr(10, 11); // RX, TX
+#define ARD_RX_ESP_TX   10
+#define ARD_TX_ESP_RX   11
+#define ESP_RST         8
+#define ESP_SSID        "PONDOK DR LT 1"
+#define ESP_PASS        "bulanpuasa"
+#define HOST            "openlibrary.telkomuniversity.ac.id"
+#define PORT            80
 
-void wifi() {
-  while (sr.available()) {
-    Serial.print(sr.readString());
-  }
-}
+String PAGE           = "/room/index.php/Rfidbooked?rfid=";
+String RFID           = "040D3782253980";
+String RMID           = "&roomid=15";
 
-void wifiRead() {
-  if (sr.available()) {
-    Serial.write(sr.read());
-  }
-  if (Serial.available()) {
-    sr.write(Serial.read());
-  }
-}
-
-void AT(int i) {
-  switch(i){
-    case 0: sr.write("AT\r\n"); break;
-    case 1: sr.write("AT+GMR\r\n"); break;
-    case 2: sr.write("AT+CIPSTATUS\r\n"); break;
-    case 3: sr.write("AT+CWMODE=3\r\n"); break;
-    case 4: sr.write("AT+CWLAP\r\n"); break;
-    case 5: sr.write("AT+CWJAP=\"PONDOK DR LT 1\",\"bulanpuasa\"\r\n"); break;
-    case 6: sr.write("AT+CIFSR\r\n"); break;
-    default: sr.write("AT\r\n");
-  }
-}
+SoftwareSerial softser(ARD_RX_ESP_TX, ARD_TX_ESP_RX);
+Adafruit_ESP8266 wifi(&softser, &Serial, ESP_RST);
 
 void setup_wifi(){
-  Serial.begin(9600);
-  while (!Serial) {;}
-  sr.begin(9600);
-  AT(0); wifi(); delay(250);
-  AT(1); wifi(); delay(250);
-  AT(2); wifi(); delay(250);
-  AT(3); wifi(); delay(250);
-  AT(4); wifi(); delay(5000);
-  AT(5); wifi(); delay(250);
-  AT(2); wifi(); delay(250);
-  AT(6); wifi(); delay(250);
+  char buffer[50];
+  softser.begin(9600);
+  Serial.begin(9600); while(!Serial);
+  Serial.println(F("initial ESP8266"));
+  Serial.print(F("Soft reset..."));
+  if(!wifi.softReset()) {
+    Serial.println(F("no response from module."));
+    for(;;);
+  }
+  Serial.println(F("OK."));
+
+  Serial.print(F("Checking firmware version..."));
+  wifi.println(F("AT+GMR"));
+  if(wifi.readLine(buffer, sizeof(buffer))) {
+    Serial.println(buffer);
+    wifi.find();
+  } else {
+    Serial.println(F("error"));
+  }
+
+  Serial.print(F("Connecting to WiFi..."));
+  if(wifi.connectToAP(F(ESP_SSID), F(ESP_PASS))) {
+    Serial.print(F("OK\nChecking IP addr..."));
+    wifi.println(F("AT+CIFSR"));
+    if(wifi.readLine(buffer, sizeof(buffer))) {
+      Serial.println(buffer);
+      wifi.find();
+    } else {
+      Serial.println(F("error"));
+    }
+  } else {
+    Serial.println(F("FAIL"));
+  }  
+}
+
+bool request_permission(String RFID){
+    bool data = false;
+    if(wifi.connectTCP(F(HOST), PORT)) {
+    Serial.print(F("OK\nRequesting page..."));
+    String API = PAGE + RFID + RMID;
+    char* capi = API.c_str();
+    if(wifi.requestURL(capi)) {
+      Serial.println("OK\nSearching for string...");
+      if(wifi.find(F("{\"status\":\"failed\"}"), false)) {
+        data = true;
+      } 
+    } else {
+      Serial.println(F("error"));
+    }
+    wifi.closeTCP();
+  } else {
+    Serial.println(F("elah -_- !"));
+  }
+  return data;
 }
