@@ -1,8 +1,10 @@
+#include <Arduino.h>
 #include "ESP8266.h"
 #include <SoftwareSerial.h>
+#include "M_SOLENOID.h"
 
-#define ARD_RX_ESP_TX   5
-#define ARD_TX_ESP_RX   4
+#define ARD_RX_ESP_TX   4
+#define ARD_TX_ESP_RX   5
 #define ESP_RST         3
 #define ESP_SSID        "PONDOK DR LT 1"
 #define ESP_PASS        "bulanpuasa"
@@ -10,7 +12,7 @@
 #define PORT            80
 
 String PAGE           = "/room/index.php/Rfidbooked?rfid=";
-String RFID           = "040D3782253980";
+String CDID           = "040D3782253980";
 String RMID           = "&roomid=15";
 
 SoftwareSerial softser(ARD_RX_ESP_TX, ARD_TX_ESP_RX);
@@ -52,11 +54,11 @@ void setup_wifi(){
   }  
 }
 
-bool request_permission(String RFID){
+bool request_permission(String CDID){
     bool data = false;
     if(wifi.connectTCP(F(HOST), PORT)) {
     Serial.print(F("OK\nRequesting page..."));
-    String API = PAGE + RFID + RMID;
+    String API = PAGE + CDID + RMID;
     char* capi = API.c_str();
     if(wifi.requestURL(capi)) {
       Serial.println("OK\nSearching for string...");
@@ -72,3 +74,14 @@ bool request_permission(String RFID){
   }
   return data;
 }
+
+void loop_wifi(String chex){
+  if (request_permission(chex)) {
+    ACCEPT ();
+    Serial.println("Boleh Masuk");
+  } else {
+    REJECT ();
+    Serial.println("Tidak Boleh Masuk");
+  }
+}
+      
