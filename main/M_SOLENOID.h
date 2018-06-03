@@ -56,5 +56,31 @@ void loop_solenoid() {
   }
 }
 
+void alarmSound(){
+  tone (buzzer, 1800);
+  delay(100);
+  tone (buzzer, 1200);
+  delay(100);
+  tone (buzzer, 900);
+  delay(200);
+  noTone (buzzer);
+  delay(500);
+  tone (buzzer, 1800);
+  delay(100);
+  tone (buzzer, 1200);
+  delay(100);
+  tone (buzzer, 900);
+  delay(200);
+  noTone (buzzer);
+  delay(500);
+  tone (buzzer, 1800);
+  delay(100);
+  tone (buzzer, 1200);
+  delay(100);
+  tone (buzzer, 900);
+  delay(200);
+  noTone (buzzer);
+  delay(500);
+}
 
 
