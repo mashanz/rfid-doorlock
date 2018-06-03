@@ -1,0 +1,8 @@
+Added Component: Designator=Songle Relay(SRD)
+Added Pin To Net: NetName=SR1 Pin=Songle Relay-1
+Added Pin To Net: NetName=GND Pin=Songle Relay-2
+Added Pin To Net: NetName=IO8 Pin=Songle Relay-3
+Added Pin To Net: NetName=SR5 Pin=Songle Relay-5
+Added Member To Class: ClassName=ArduinoUnoShield Member=Component LDC 1 LCD 1
+Added Member To Class: ClassName=ArduinoUnoShield Member=Component Resistor Res1
+Added Member To Class: ClassName=ArduinoUnoShield Member=Component Songle Relay

@@ -1,0 +1,92 @@
+Added Component: Designator=Capasitor(RAD-0.3)
+Added Component: Designator=Diode(DO-41)
+Added Component: Designator=H1(HDR1X3)
+Added Component: Designator=H2(HDR1X3)
+Added Component: Designator=LDC 1(HDR1X4)
+Added Component: Designator=LDC 1(HDR1X4)
+Added Component: Designator=RESET(HDR1X2)
+Added Component: Designator=Resistor(AXIAL-0.3)
+Added Component: Designator=Resistor(AXIAL-0.3)
+Added Component: Designator=RFID(HDR1X8)
+Added Component: Designator=RTC(HDR1X4)
+Added Component: Designator=Selenoid(HDR1X2)
+Added Component: Designator=Tegangan(KLD-0202)
+Added Component: Designator=VCC(HDR1X2)
+Added Component: Designator=WiFi(HDR2X4)
+Added Pin To Net: NetName=GND Pin=Capasitor-2
+Added Pin To Net: NetName=5V Pin=H1-1
+Added Pin To Net: NetName=IO2 Pin=H1-2
+Added Pin To Net: NetName=GND Pin=H1-3
+Added Pin To Net: NetName=AD5 Pin=LDC 1-1
+Added Pin To Net: NetName=AD5 Pin=LDC 1-1
+Added Pin To Net: NetName=AD4 Pin=LDC 1-2
+Added Pin To Net: NetName=AD4 Pin=LDC 1-2
+Added Pin To Net: NetName=5V Pin=LDC 1-3
+Added Pin To Net: NetName=5V Pin=LDC 1-3
+Added Pin To Net: NetName=GND Pin=LDC 1-4
+Added Pin To Net: NetName=GND Pin=LDC 1-4
+Added Pin To Net: NetName=GND Pin=RESET-1
+Added Pin To Net: NetName=RESET Pin=RESET-2
+Added Pin To Net: NetName=GND Pin=Resistor-2
+Added Pin To Net: NetName=3V3 Pin=RFID-1
+Added Pin To Net: NetName=IO9 Pin=RFID-2
+Added Pin To Net: NetName=GND Pin=RFID-3
+Added Pin To Net: NetName=IO12 Pin=RFID-5
+Added Pin To Net: NetName=IO11 Pin=RFID-6
+Added Pin To Net: NetName=IO13 Pin=RFID-7
+Added Pin To Net: NetName=IO10 Pin=RFID-8
+Added Pin To Net: NetName=AD5 Pin=RTC-1
+Added Pin To Net: NetName=AD4 Pin=RTC-2
+Added Pin To Net: NetName=5V Pin=RTC-3
+Added Pin To Net: NetName=GND Pin=RTC-4
+Added Pin To Net: NetName=GND Pin=Selenoid-1
+Added Pin To Net: NetName=GND Pin=Tegangan-2A
+Added Pin To Net: NetName=GND Pin=Tegangan-2B
+Added Pin To Net: NetName=GND Pin=Tegangan-2
+Added Pin To Net: NetName=GND Pin=VCC-1
+Added Pin To Net: NetName=IO4 Pin=WiFi-1
+Added Pin To Net: NetName=3V3 Pin=WiFi-2
+Added Pin To Net: NetName=IO3 Pin=WiFi-4
+Added Pin To Net: NetName=3V3 Pin=WiFi-6
+Added Pin To Net: NetName=GND Pin=WiFi-7
+Added Pin To Net: NetName=IO5 Pin=WiFi-8
+Added Pin To Net: NetName=NetCapasitor_1 Pin=Capasitor-1
+Added Pin To Net: NetName=NetCapasitor_1 Pin=Diode-2
+Added Pin To Net: NetName=NetCapasitor_1 Pin=Resistor-1
+Added Net: Name=NetCapasitor_1
+Added Pin To Net: NetName=NetResistor_2 Pin=Resistor-2
+Added Net: Name=NetResistor_2
+Added Pin To Net: NetName=NetTegangan_3 Pin=Tegangan-3
+Added Pin To Net: NetName=NetTegangan_3 Pin=Tegangan-3A
+Added Pin To Net: NetName=NetTegangan_3 Pin=Tegangan-3B
+Added Net: Name=NetTegangan_3
+Added Pin To Net: NetName=SR1 Pin=Selenoid-2
+Added Net: Name=SR1
+Added Pin To Net: NetName=SR5 Pin=Diode-1
+Added Pin To Net: NetName=SR5 Pin=Tegangan-1
+Added Pin To Net: NetName=SR5 Pin=Tegangan-1A
+Added Pin To Net: NetName=SR5 Pin=Tegangan-1B
+Added Pin To Net: NetName=SR5 Pin=VCC-2
+Added Net: Name=SR5
+Added Pin To Net: NetName=TOM1 Pin=H2-1
+Added Net: Name=TOM1
+Added Pin To Net: NetName=TOM2 Pin=H2-2
+Added Net: Name=TOM2
+Added Pin To Net: NetName=TOM3 Pin=H2-3
+Added Pin To Net: NetName=TOM3 Pin=Resistor-1
+Added Net: Name=TOM3
+Added Member To Class: ClassName=ArduinoUnoShield Member=Component Capasitor Cap
+Added Member To Class: ClassName=ArduinoUnoShield Member=Component Diode Diode 1N4002
+Added Member To Class: ClassName=ArduinoUnoShield Member=Component H1
+Added Member To Class: ClassName=ArduinoUnoShield Member=Component H2
+Added Member To Class: ClassName=ArduinoUnoShield Member=Component LDC 1 LCD 1
+Added Member To Class: ClassName=ArduinoUnoShield Member=Component LDC 1 LCD 1
+Added Member To Class: ClassName=ArduinoUnoShield Member=Component RESET
+Added Member To Class: ClassName=ArduinoUnoShield Member=Component Resistor Res1
+Added Member To Class: ClassName=ArduinoUnoShield Member=Component Resistor Res1
+Added Member To Class: ClassName=ArduinoUnoShield Member=Component RFID
+Added Member To Class: ClassName=ArduinoUnoShield Member=Component RTC
+Added Member To Class: ClassName=ArduinoUnoShield Member=Component Selenoid
+Added Member To Class: ClassName=ArduinoUnoShield Member=Component Tegangan
+Added Member To Class: ClassName=ArduinoUnoShield Member=Component VCC
+Added Member To Class: ClassName=ArduinoUnoShield Member=Component WiFi
