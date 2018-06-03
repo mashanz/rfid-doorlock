@@ -3,23 +3,23 @@
 #include <Time.h>
 #include <TimeLib.h>
 #include <DS1307RTC.h>
-#include "M_WIFI.h"
-#include "M_SOLENOID.h"
+#include "M_RFID.h"
 
 tmElements_t tm;
 String waktu;
 int resetTime = 120;
-int updatetime = 0;
+int updateTime = 0;
 
 
 void countingUP() {
-  if (updatetime == resetTime) {
+  if (updateTime == resetTime) {
     if (check_alarm()){
       alarmSound();
       alarmSound();
     }
     updateTime = 0;
   } else updateTime++;
+  Serial.print("RTCUpdateTime: " + updateTime);
 }
 
 void Read_Time() {

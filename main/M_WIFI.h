@@ -97,8 +97,8 @@ bool check_alarm(){
   }
   return data;
 }
-void loop_wifi(String chex){
-  if (request_permission(chex)) {
+void loop_wifi(String chx){
+  if (request_permission(chx)) {
     ACCEPT ();
     Serial.println("Boleh Masuk");
   } else {
