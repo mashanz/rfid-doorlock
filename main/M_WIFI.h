@@ -6,9 +6,9 @@
 #define ARD_RX_ESP_TX   4
 #define ARD_TX_ESP_RX   5
 #define ESP_RST         3
-#define ESP_SSID        "PONDOK DR LT 1"
-#define ESP_PASS        "bulanpuasa"
-#define HOST            "openlibrary.telkomuniversity.ac.id"
+#define ESP_SSID        "WIFI"
+#define ESP_PASS        "password"
+#define HOST            "HOST
 #define PORT            80
 String BOOK             = "/room/index.php/Rfidbooked?rfid=";
 String ALRM             = "/room/index.php/Rfidalarm?roomid=";
